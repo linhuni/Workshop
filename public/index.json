@@ -1,0 +1,106 @@
+[
+{
+	"uri": "/2-preparation/2.1-createec2/2.1.1-createvpc/",
+	"title": "Create VPC",
+	"tags": [],
+	"description": "",
+	"content": "Create VPC Sample VPC Go to VPC service management console Click Create VPC. At the Create VPC page. Choose the VPC only mode. In the Name tag field, enter Sample VPC. In the IPv4 CIDR field, enter: 10.0.0.0/16. Leave everything else Default Click Create VPC. After successfully created VPC. We will receive a notification as below "
+},
+{
+	"uri": "/1-introduce/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "VPC is the backbone of AWS networking, it forms the foundational layer of networking and security in the cloud. Understanding what a VPC is and how to set up and manage a VPC is essential because it dictates how your AWS resources communicate with each other, with the internet, and with on-premises networks. Learning VPC first equips you with the necessary knowledge to manage AWS resources securely, efficiently, and effectively. It lays the groundwork for understanding how AWS works at a network level, which is crucial for building, deploying, and scaling applications in the cloud. This workshop will start by introducing the conecpt of VPC then we will move to the process of setting up a VPC, where we will learn how to configure subnets, route tables, and security groups to create a secure and scalable network environment. Next, we will figure out what is an EC2 and how it works then deploy an EC2 instance within this VPC, ensuring that it\u0026rsquo;s correctly integrated into your network, before we establish EC2 instances. Finally, we\u0026rsquo;ll demonstrate how to test the connection to your EC2 instance, verifying that it\u0026rsquo;s properly configured and accessible as intended.\n"
+},
+{
+	"uri": "/",
+	"title": "Session Management",
+	"tags": [],
+	"description": "",
+	"content": "Work with Amazon System Manager - Session Manager Overall In this lab, you\u0026rsquo;ll learn the basics and practice of Amazon System Manager - Session Manager . Perform creating public and private instance connections.\nContent Introduction Preparation Connect to EC2 instance Manage session logs Port Forwarding Clean up resources "
+},
+{
+	"uri": "/4-testconnection/4.1.testconnectionec2public/",
+	"title": "Test connection",
+	"tags": [],
+	"description": "",
+	"content": "Test connection Test connection of EC2 with SSH\nGo to the EC2 console: Choose the Instances. Select the Public EC2. In Detail part, copy the Public IPv4 address of the instance. Open Terminal ( On Mac OS) : Use cd command to go to the Folder containing the .pem key. Here, enter the command chmod 400 sample.pem to allow to read the file. Enter the command ssh -i sample.pem ec2-user@Public IPv4 address to connect ssh to the ec2 public. Enter the command ping amazon.com -c5 to check if the instance is connected to ssh or not. Test connect between priavte and public EC2\nStaying in the ec2-user above: Enter the command ping Private IPv4 address -c5 Test connection of private EC2 and SSH\nBecause we can\u0026rsquo;t connect directly Internet to private EC2, we have to connect the Internet to private EC2 through public EC2 and NAT gateway. Open Terminal ( On Mac OS) Use cd command to go to the Folder containing the .pem key. Here, enter the command scp -i sample.pem sample.pem ec2-user@47.129.154.215:~/.ssh to copy the .pem file from the local host to the remote instance Connect to the EC2 public Use cd command to go to the file .ssh then use ls to check if the .pem file here or yet Here, enter the command chmod 400 sample.pem to allow to read the file. Enter the command ssh -i sample.pem ec2-user@PPrivate IPv4 address to connect ssh to the private ec2. Use the command ping amazon.com -c5 to check if the private EC2 connect to Internet or not. We can see that the private EC2 can\u0026rsquo;t connect to the Internet without the NAT gateway. So we need to create a "
+},
+{
+	"uri": "/2-preparation/2.1-createec2/2.1.2-createpublicsubnet/",
+	"title": "Create Public Subnet",
+	"tags": [],
+	"description": "",
+	"content": "Create 2 Public Subnets Click Subnets. Click Create subnet. At the Create subnet page. In the VPC ID section, click Sample VPC. In the Subnet name field, enter Public Subnet 1. In the Availability Zone section, select the first Availability zone. In the field IPv4 CIRD block enter 10.0.0.0/24. Scroll to the bottom of the page, click Create subnet.\nAfter successfully created Public Subnet, we will receive the notification Allow Automatic Allocation of Public IP Addresses for 2 Public Subnets\nSlect Subnets Select Public Subnet 1 Select Actions Select Edit subnet settings Select Enable auto-assign public IPv4 address Select Save The other subnet will be done the same\n"
+},
+{
+	"uri": "/2-preparation/",
+	"title": "Preparation ",
+	"tags": [],
+	"description": "",
+	"content": "This part will introduce to create a VPC which is needed to create EC2 and test its connection. In this part, you can learn about how to create a VPC and set up related things like subnets, route table, secuirty group and so on.\n"
+},
+{
+	"uri": "/3-createec2/",
+	"title": "Create EC2 Instances",
+	"tags": [],
+	"description": "",
+	"content": "Create EC2 Go to EC2 console. Click on Instances. Click Launch instances. Enter the name of the EC2 Public EC2 In the Application and OS images, we will leave default. In the Keypair section: Choose Create new key pair Enter the name of the keypair - sample Choose .pem mode Cick Create keypair In the Network settings: Choose the VPC is the Sample VPC Select the Public Subnet Select Enable Auto-assign Public IP In the Security Group select Existing security group then choose the Public subnet SG Press Launch instance Notice: After created EC2 we need to wait until the status of EC2 change from Initializing to Running, it means our EC2 is available\nDo the same with the Private EC2 "
+},
+{
+	"uri": "/2-preparation/2.1-createec2/2.1.3-createprivatesubnet/",
+	"title": "Create Private Subnet",
+	"tags": [],
+	"description": "",
+	"content": "Create 2 Private Subnets Click Subnets. Click Create subnet. At the Create subnet page. In the VPC ID section, click Sample VPC. In the Subnet name field, enter Private Subnet 1. In the Availability Zone section, select the first Availability zone. In the field IPv4 CIRD block enter 10.0.0.1/24. Scroll to the bottom of the page, click Create subnet. The next step is to create the necessary security groups for the lab.\n"
+},
+{
+	"uri": "/2-preparation/2.1-createec2/2.1.4-createitn/",
+	"title": "Create Internet Gateway",
+	"tags": [],
+	"description": "",
+	"content": "Create internet gateway Go to VPC service management console Click Internet Gateway. Enter the name of the gateway as Internet GW. Select Create internet gateway After created Internet GW, we will attach to it a VPC - Sample VPC. Select Sample VPC Successfully created a VPC "
+},
+{
+	"uri": "/4-testconnection/",
+	"title": "Test connection",
+	"tags": [],
+	"description": "",
+	"content": "After created EC2 instances, we need to check the connection of EC2 with the Internet, the connection between public EC2 and private EC2. Testing the connection of a public EC2 instance using the ping command is essential to verify basic network connectivity and ensure that the instance is reachable over the internet. This test helps confirm that network routing, security group rules, and Network ACLs are correctly configured to allow inbound ICMP traffic. Additionally, testing the connection between a public EC2 instance and a private EC2 instance is crucial for validating internal VPC communication. It ensures that the instances can communicate within the VPC, which is vital for multi-tier architectures where different instances need to interact, such as web servers in public subnets connecting to databases or application servers in private subnets. These tests are fundamental to ensuring the overall functionality and security of your cloud environment.\n"
+},
+{
+	"uri": "/5-createnat/",
+	"title": "Create NAT gateway and test connection of private EC2",
+	"tags": [],
+	"description": "",
+	"content": "Create NAT gateway Go to VPC console Click Elastic Ips , then click Allocate Elastic IP address. Add the name of the EIP Click Allocate Create NAT gateway. Click on Create NAT gateway. Test conenction of private EC2 with connection Enter ping amazon.com -c5 "
+},
+{
+	"uri": "/2-preparation/2.1-createec2/2.1.5-createroute/",
+	"title": "Create Route Table",
+	"tags": [],
+	"description": "",
+	"content": "Create route table Go to VPC service management console\nClick Route tables. Click Create route table. Enter name of the routePublic table. Choose the VPC as Sample VPC. Click Create route table. After created route table for the subnets. We will edit the route of the public table\nClick Edit route. Because we want it to be connected with the Internet so we will choose the Destination and Route as 0.0.0.0/0 and our internet gateway.\nClick Save changes Then we will associate our route table to our subnets.\nClick Subnet association Click Edit Subnet association Select Public subnets Click Save changes With Private route we only need to edit the inbound rule and the subnet associations. "
+},
+{
+	"uri": "/2-preparation/2.1-createec2/2.1.6-createsecuritygroup/",
+	"title": "Create Security Group",
+	"tags": [],
+	"description": "",
+	"content": "Create Security Group Go to VPC service management console Click Security Group. At the create security group page\nEnter the name of the security group - Public subnet SG Add description - Allow SSH and ping for servers in public subnets Select the Sample VPC In the Inbound rule we will set up as the picture below. With the Private subnet SG we will do as the same but in the Inbound rule we will set as below After successfully created the security group. We will have two groups as below "
+},
+{
+	"uri": "/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
