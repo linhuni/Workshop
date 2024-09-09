@@ -1,21 +1,20 @@
 ---
-title : "Session Management"
+title : "Vpc"
 date :  "`r Sys.Date()`" 
 weight : 1 
 chapter : false
 ---
-# Work with Amazon System Manager - Session Manager
+# VPC and EC2
 
 ### Overall
- In this lab, you'll learn the basics and practice of Amazon  System Manager - Session Manager
-. Perform creating public and private instance connections. 
+ In this workshop, I will introduce the concept of VPC and EC2 which is a service established in VPC. Then I will show you how to create a VPC along with an EC2 step by step. After successfully created these things, we will test the connection of EC2. How to test it and why it needs to be tested wiill be explained in the workshop.
 
-![ConnectPrivate](/images/arc-log.png) 
+
 
 ### Content
  1. [Introduction ](1-introduce/)
  2. [Preparation](2-prerequiste/)
- 3. [Connect to EC2 instance](3-accessibilitytoinstances/)
- 4. [Manage session logs](4-s3log/)
- 5. [Port Forwarding](5-Portfwd/)
- 6. [Clean up resources](6-cleanup/)
+ 3. [Create EC2](3-CreateEC2/)
+ 4. [Test connection](4-Testconnection/)
+ 5. [Create NAT](5-CreateNAT/)
+ 
