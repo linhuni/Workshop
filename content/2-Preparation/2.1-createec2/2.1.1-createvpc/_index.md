@@ -7,11 +7,12 @@ pre : " <b> 2.1.1 </b> "
 ---
 
 
-#### Create VPC **Sample VPC**
+#### Create VPC 
+**Sample VPC**
 1. Go to [VPC service management console](https://console.aws.amazon.com/vpc/home)
    + Click **Create VPC**.
 
-![VPC](/images/2.preparation/001-CreateVPC.png)
+![VPC](/images/2-Preparation/001-CreateVPC.png)
 
 2. At the **Create VPC** page.
    + Choose the **VPC only** mode.
@@ -20,8 +21,8 @@ pre : " <b> 2.1.1 </b> "
    + Leave everything else **Default**
    + Click **Create VPC**.
 
-![VPC](/images/2.preparation/002-CreateVPC.png)
-![VPC](/images/2.preparation/003-CreateVPC.png)
+![VPC](/images/2-Preparation/002-CreateVPC.png)
+![VPC](/images/2-Preparation/003-CreateVPC.png)
 
 3. After successfully created VPC. We will receive a notification as below
-![VPC](/images/2.preparation/004-CreateVPC.png)
+![VPC](/images/2-Preparation/004-CreateVPC.png)
